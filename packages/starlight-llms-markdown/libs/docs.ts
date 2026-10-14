@@ -69,10 +69,12 @@ export function renderDoc(entry: DocEntry, site?: URL): string {
   return parts.join("\n\n") + "\n";
 }
 
+/** Heading for a directory path like `guides` or `guides/advanced`. */
 export function sectionLabel(dir: string | undefined): string {
   if (!dir) return config.rootSectionLabel;
+  const name = dir.split("/").at(-1)!;
   return (
-    config.sectionLabels[dir] ?? dir.charAt(0).toUpperCase() + dir.slice(1).replace(/[-_]/g, " ")
+    config.sectionLabels[dir] ?? name.charAt(0).toUpperCase() + name.slice(1).replace(/[-_]/g, " ")
   );
 }
 

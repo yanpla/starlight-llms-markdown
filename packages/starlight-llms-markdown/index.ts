@@ -41,6 +41,13 @@ export default function starlightLlmsMarkdown(
                 entrypoint: `${routes}/llms.txt.ts`,
                 prerender: true,
               });
+              if (config.sectionIndexes || config.pageLlmsTxt) {
+                injectRoute({
+                  pattern: "/[...path]/llms.txt",
+                  entrypoint: `${routes}/path-llms.txt.ts`,
+                  prerender: true,
+                });
+              }
               if (config.full) {
                 injectRoute({
                   pattern: "/llms-full.txt",

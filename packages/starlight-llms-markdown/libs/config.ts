@@ -25,7 +25,7 @@ export interface StarlightLlmsMarkdownUserConfig {
    */
   exclude?: string[];
   /**
-   * Section headings for top-level directories, e.g. `{ guides: 'How-to guides' }`.
+   * Section headings by directory path, e.g. `{ guides: 'How-to guides', 'guides/advanced': 'Advanced' }`.
    * Unlisted directories get a title-cased version of their name.
    */
   sectionLabels?: Record<string, string>;
@@ -40,6 +40,20 @@ export interface StarlightLlmsMarkdownUserConfig {
    * @default true
    */
   indexMd?: boolean;
+  /**
+   * Also generate an llms.txt for every directory, e.g. `/guides/llms.txt`,
+   * listing only the pages under it. Top-level ones are linked from the
+   * `## Optional` section of the root llms.txt.
+   * @default true
+   */
+  sectionIndexes?: boolean;
+  /**
+   * Also serve each page's markdown at `/<slug>/llms.txt`, e.g.
+   * `/guides/example/llms.txt`. Where a page is also a directory, the
+   * directory index from `sectionIndexes` is served there instead.
+   * @default true
+   */
+  pageLlmsTxt?: boolean;
   /**
    * Generate `/llms-full.txt` with every page concatenated, linked from
    * the `## Optional` section of llms.txt.
@@ -66,6 +80,8 @@ export function parseConfig(
     sectionLabels: {},
     rootSectionLabel: "Docs",
     indexMd: true,
+    sectionIndexes: true,
+    pageLlmsTxt: true,
     full: true,
     optionalLinks: [],
     ...userConfig,

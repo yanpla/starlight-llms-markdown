@@ -10,6 +10,7 @@ On build it generates:
 | `/<slug>.md`       | Clean markdown version of each page, e.g. `/guides/example.md`                                             |
 | `/<slug>/index.md` | The same markdown at the exact path llmstxt.org specifies for URLs ending in `/`                           |
 | `/llms-full.txt`   | Every page in one file, linked from the `## Optional` section of `llms.txt`                                |
+| `/<dir>/llms.txt`  | The same index for one directory, e.g. `/guides/llms.txt`, covering only the pages under it                |
 
 New pages are picked up automatically. Drafts are skipped.
 
@@ -44,9 +45,11 @@ export default defineConfig({
 | `description`      | `string`                         | Starlight's `description` | Blockquote summary at the top of `llms.txt`                                                       |
 | `details`          | `string`                         | —                         | Extra markdown after the summary. Must not contain headings                                       |
 | `exclude`          | `string[]`                       | `[]`                      | Page ids to leave out, e.g. `['internal/**']`. `*` matches within a segment, `**` across segments |
-| `sectionLabels`    | `Record<string, string>`         | `{}`                      | Heading per top-level directory, e.g. `{ guides: 'How-to guides' }`                               |
+| `sectionLabels`    | `Record<string, string>`         | `{}`                      | Heading per directory path, e.g. `{ guides: 'How-to guides', 'guides/advanced': 'Advanced' }`     |
 | `rootSectionLabel` | `string`                         | `'Docs'`                  | Heading for pages not inside a directory                                                          |
 | `indexMd`          | `boolean`                        | `true`                    | Also emit `/<slug>/index.md`                                                                      |
+| `sectionIndexes`   | `boolean`                        | `true`                    | Emit `/<dir>/llms.txt` for every directory                                                        |
+| `pageLlmsTxt`      | `boolean`                        | `true`                    | Emit `/<slug>/llms.txt` for every page                                                            |
 | `full`             | `boolean`                        | `true`                    | Emit `/llms-full.txt`                                                                             |
 | `optionalLinks`    | `{ title, url, description? }[]` | `[]`                      | Extra links for the `## Optional` section                                                         |
 
