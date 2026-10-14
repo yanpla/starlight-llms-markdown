@@ -1,20 +1,20 @@
 import type { StarlightPlugin } from "@astrojs/starlight/types";
-import { type StarlightLlmsMdUserConfig, parseConfig } from "./libs/config";
-import { vitePluginStarlightLlmsMd } from "./libs/vite";
+import { type StarlightLlmsMarkdownUserConfig, parseConfig } from "./libs/config";
+import { vitePluginStarlightLlmsMarkdown } from "./libs/vite";
 
-export type { StarlightLlmsMdUserConfig } from "./libs/config";
+export type { StarlightLlmsMarkdownUserConfig } from "./libs/config";
 
 /**
  * Generates an llms.txt index and a clean markdown copy of every page,
  * following https://llmstxt.org/.
  */
-export default function starlightLlmsMd(
-  userConfig: StarlightLlmsMdUserConfig = {},
+export default function starlightLlmsMarkdown(
+  userConfig: StarlightLlmsMarkdownUserConfig = {},
 ): StarlightPlugin {
   const config = parseConfig(userConfig);
 
   return {
-    name: "starlight-llms-md",
+    name: "starlight-llms-markdown",
     hooks: {
       "config:setup"({ addIntegration, config: starlightConfig, astroConfig, logger }) {
         if (!astroConfig.site) {
@@ -31,10 +31,10 @@ export default function starlightLlmsMd(
               "Documentation");
 
         addIntegration({
-          name: "starlight-llms-md-integration",
+          name: "starlight-llms-markdown-integration",
           hooks: {
             "astro:config:setup"({ injectRoute, updateConfig }) {
-              const routes = "starlight-llms-md/routes";
+              const routes = "starlight-llms-markdown/routes";
 
               injectRoute({
                 pattern: "/llms.txt",
@@ -64,7 +64,7 @@ export default function starlightLlmsMd(
               updateConfig({
                 vite: {
                   plugins: [
-                    vitePluginStarlightLlmsMd({
+                    vitePluginStarlightLlmsMarkdown({
                       ...config,
                       title,
                       description: config.description ?? starlightConfig.description,

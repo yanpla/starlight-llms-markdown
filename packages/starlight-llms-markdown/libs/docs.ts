@@ -1,5 +1,5 @@
 import { getCollection, type CollectionEntry } from "astro:content";
-import config from "virtual:starlight-llms-md/config";
+import config from "virtual:starlight-llms-markdown/config";
 
 export type DocEntry = CollectionEntry<"docs">;
 

@@ -7,7 +7,7 @@ export interface LlmsLink {
   description?: string;
 }
 
-export interface StarlightLlmsMdUserConfig {
+export interface StarlightLlmsMarkdownUserConfig {
   /**
    * Summary shown as the blockquote at the top of llms.txt.
    * Defaults to Starlight's `description` option.
@@ -50,14 +50,16 @@ export interface StarlightLlmsMdUserConfig {
   optionalLinks?: LlmsLink[];
 }
 
-export type StarlightLlmsMdConfig = Required<
-  Omit<StarlightLlmsMdUserConfig, "description" | "details">
+export type StarlightLlmsMarkdownConfig = Required<
+  Omit<StarlightLlmsMarkdownUserConfig, "description" | "details">
 > &
-  Pick<StarlightLlmsMdUserConfig, "description" | "details">;
+  Pick<StarlightLlmsMarkdownUserConfig, "description" | "details">;
 
-export function parseConfig(userConfig: StarlightLlmsMdUserConfig): StarlightLlmsMdConfig {
+export function parseConfig(
+  userConfig: StarlightLlmsMarkdownUserConfig,
+): StarlightLlmsMarkdownConfig {
   if (userConfig.details && /^#{1,6}\s/m.test(userConfig.details)) {
-    throw new Error("[starlight-llms-md] `details` must not contain markdown headings.");
+    throw new Error("[starlight-llms-markdown] `details` must not contain markdown headings.");
   }
   return {
     exclude: [],
@@ -71,7 +73,7 @@ export function parseConfig(userConfig: StarlightLlmsMdUserConfig): StarlightLlm
 }
 
 /** Config exposed to the routes through the virtual module. */
-export interface ResolvedConfig extends StarlightLlmsMdConfig {
+export interface ResolvedConfig extends StarlightLlmsMarkdownConfig {
   title: string;
   trailingSlash: boolean;
 }

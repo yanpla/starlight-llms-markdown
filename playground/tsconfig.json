@@ -1,5 +1,5 @@
 {
   "extends": "astro/tsconfigs/strict",
-  "include": [".astro/types.d.ts", "**/*", "../packages/starlight-llms-md/virtual.d.ts"],
+  "include": [".astro/types.d.ts", "**/*", "../packages/starlight-llms-markdown/virtual.d.ts"],
   "exclude": ["dist"]
 }

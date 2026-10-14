@@ -1,5 +1,5 @@
 {
-  "name": "starlight-llms-md-monorepo",
+  "name": "starlight-llms-markdown-monorepo",
   "private": true,
   "workspaces": [
     "packages/*",
@@ -9,7 +9,7 @@
   "scripts": {
     "dev": "npm run dev -w playground",
     "build": "npm run build -w playground",
-    "check": "npm run check -w playground && tsc --noEmit -p packages/starlight-llms-md",
+    "check": "npm run check -w playground && tsc --noEmit -p packages/starlight-llms-markdown",
     "prepare": "vp config"
   },
   "devDependencies": {

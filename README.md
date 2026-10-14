@@ -1,4 +1,4 @@
-# starlight-llms-md
+# starlight-llms-markdown
 
 A [Starlight](https://starlight.astro.build) plugin that makes your docs readable by LLMs, following the [llms.txt standard](https://llmstxt.org/).
 
@@ -16,14 +16,14 @@ New pages are picked up automatically. Drafts are skipped.
 ## Install
 
 ```sh
-npm install starlight-llms-md
+npm install starlight-llms-markdown
 ```
 
 ```js
 // astro.config.mjs
 import { defineConfig } from "astro/config";
 import starlight from "@astrojs/starlight";
-import starlightLlmsMd from "starlight-llms-md";
+import starlightLlmsMarkdown from "starlight-llms-markdown";
 
 export default defineConfig({
   site: "https://example.com", // needed for absolute links in llms.txt
@@ -31,7 +31,7 @@ export default defineConfig({
     starlight({
       title: "My Docs",
       description: "Shown as the summary in llms.txt.",
-      plugins: [starlightLlmsMd()],
+      plugins: [starlightLlmsMarkdown()],
     }),
   ],
 });
@@ -65,7 +65,7 @@ MIT
 
 This repo is an npm workspace:
 
-- `packages/starlight-llms-md`: the plugin
+- `packages/starlight-llms-markdown`: the plugin
 - `playground`: a Starlight site that uses it
 
 ```sh

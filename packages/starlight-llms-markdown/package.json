@@ -1,11 +1,13 @@
 {
-  "name": "starlight-llms-md",
+  "name": "starlight-llms-markdown",
   "version": "0.1.0",
   "description": "Starlight plugin that generates llms.txt and a markdown copy of every page, following llmstxt.org",
   "keywords": [
     "ai",
     "astro",
+    "llm",
     "llms",
+    "llms-full.txt",
     "llms.txt",
     "markdown",
     "starlight",
