@@ -2,37 +2,39 @@
   "name": "starlight-llms-md",
   "version": "0.1.0",
   "description": "Starlight plugin that generates llms.txt and a markdown copy of every page, following llmstxt.org",
-  "type": "module",
+  "keywords": [
+    "ai",
+    "astro",
+    "llms",
+    "llms.txt",
+    "markdown",
+    "starlight",
+    "starlight-plugin",
+    "withastro"
+  ],
   "license": "MIT",
   "author": "yanpla",
-  "exports": {
-    ".": "./index.ts",
-    "./routes/*": "./routes/*"
-  },
   "files": [
     "index.ts",
     "libs",
     "routes",
-    "virtual.d.ts"
+    "virtual.d.ts",
+    "README.md",
+    "LICENSE"
   ],
+  "type": "module",
+  "exports": {
+    ".": "./index.ts",
+    "./routes/*": "./routes/*"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
   "peerDependencies": {
     "@astrojs/starlight": ">=0.42.0",
     "astro": ">=7.0.0"
   },
   "engines": {
     "node": ">=22.12.0"
-  },
-  "keywords": [
-    "starlight",
-    "starlight-plugin",
-    "astro",
-    "withastro",
-    "llms.txt",
-    "llms",
-    "markdown",
-    "ai"
-  ],
-  "publishConfig": {
-    "access": "public"
   }
 }

@@ -1,14 +1,21 @@
 {
   "name": "starlight-llms-md-monorepo",
   "private": true,
-  "type": "module",
   "workspaces": [
     "packages/*",
     "playground"
   ],
+  "type": "module",
   "scripts": {
     "dev": "npm run dev -w playground",
     "build": "npm run build -w playground",
-    "check": "npm run check -w playground && tsc --noEmit -p packages/starlight-llms-md"
+    "check": "npm run check -w playground && tsc --noEmit -p packages/starlight-llms-md",
+    "prepare": "vp config"
+  },
+  "devDependencies": {
+    "vite-plus": "1.2.0"
+  },
+  "overrides": {
+    "vite": "npm:@voidzero-dev/vite-plus-core@1.2.0"
   }
 }

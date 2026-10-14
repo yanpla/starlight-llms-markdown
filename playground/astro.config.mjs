@@ -1,22 +1,24 @@
 // @ts-check
-import { defineConfig } from 'astro/config';
-import starlight from '@astrojs/starlight';
-import starlightLlmsMd from 'starlight-llms-md';
+import { defineConfig } from "astro/config";
+import starlight from "@astrojs/starlight";
+import starlightLlmsMd from "starlight-llms-md";
 
 export default defineConfig({
-	site: 'https://example.com',
-	integrations: [
-		starlight({
-			title: 'Playground',
-			description: 'Test site for starlight-llms-md.',
-			plugins: [
-				starlightLlmsMd({
-					details: 'This site exists to exercise the plugin.',
-					exclude: ['guides/secret'],
-					sectionLabels: { guides: 'How-to guides' },
-					optionalLinks: [{ title: 'Astro docs', url: 'https://docs.astro.build', description: 'Upstream docs' }],
-				}),
-			],
-		}),
-	],
+  site: "https://example.com",
+  integrations: [
+    starlight({
+      title: "Playground",
+      description: "Test site for starlight-llms-md.",
+      plugins: [
+        starlightLlmsMd({
+          details: "This site exists to exercise the plugin.",
+          exclude: ["guides/secret"],
+          sectionLabels: { guides: "How-to guides" },
+          optionalLinks: [
+            { title: "Astro docs", url: "https://docs.astro.build", description: "Upstream docs" },
+          ],
+        }),
+      ],
+    }),
+  ],
 });
