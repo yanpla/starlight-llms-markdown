@@ -1,0 +1,14 @@
+{
+  "name": "starlight-llms-md-monorepo",
+  "private": true,
+  "type": "module",
+  "workspaces": [
+    "packages/*",
+    "playground"
+  ],
+  "scripts": {
+    "dev": "npm run dev -w playground",
+    "build": "npm run build -w playground",
+    "check": "npm run check -w playground && tsc --noEmit -p packages/starlight-llms-md"
+  }
+}
