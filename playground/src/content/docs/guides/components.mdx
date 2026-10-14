@@ -1,0 +1,80 @@
+---
+title: Components
+description: An MDX page using Starlight's built-in components.
+---
+
+import {
+  Aside,
+  Badge,
+  Card,
+  CardGrid,
+  Code,
+  FileTree,
+  Icon,
+  LinkCard,
+  Steps,
+  TabItem,
+  Tabs,
+} from "@astrojs/starlight/components";
+
+export const config = `export default { site: "https://example.com" };`;
+
+Install the package <Badge text="New" variant="tip" /> with your package manager:
+
+<Tabs>
+  <TabItem label="npm">
+
+```sh
+npm install starlight-llms-markdown
+```
+
+  </TabItem>
+  <TabItem label="pnpm">
+
+```sh
+pnpm add starlight-llms-markdown
+```
+
+  </TabItem>
+</Tabs>
+
+<Aside type="caution" title="Set your site">
+  Without `site`, links in **llms.txt** are relative.
+</Aside>
+
+<Aside>A note on a single line.</Aside>
+
+:::tip
+Plain markdown asides work too.
+:::
+
+{/* This comment should not appear. */}
+
+<Steps>
+
+1. Add the plugin to `astro.config.mjs`.
+2. Run `astro build`.
+
+</Steps>
+
+<Code code={config} lang="js" title="astro.config.mjs" />
+
+<Code code="console.log('literal');" lang="js" />
+
+<FileTree>
+
+- src/
+  - content/
+    - docs/
+      - **index.mdx**
+
+</FileTree>
+
+<CardGrid>
+  <Card title="Fast" icon="rocket">
+    Builds in milliseconds.
+  </Card>
+  <LinkCard title="About" href="/about/" description="What this site is." />
+</CardGrid>
+
+Inline <Icon name="star" /> icons are removed, and {"{braces}"} survive.

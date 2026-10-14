@@ -1,5 +1,6 @@
 import { getCollection, type CollectionEntry } from "astro:content";
 import config from "virtual:starlight-llms-markdown/config";
+import { mdxToPlainMarkdown } from "./mdx";
 
 export type DocEntry = CollectionEntry<"docs">;
 
@@ -61,7 +62,9 @@ export function renderDoc(entry: DocEntry, site?: URL): string {
   const parts = [`# ${title}`];
   if (description) parts.push(`> ${description}`);
   parts.push(`Source: ${absolute(pagePath(entry), site)}`);
-  const body = entry.body?.trim();
+  const body = entry.filePath?.endsWith(".mdx")
+    ? mdxToPlainMarkdown(entry.body ?? "")
+    : entry.body?.trim();
   if (body) parts.push(body);
   return parts.join("\n\n") + "\n";
 }

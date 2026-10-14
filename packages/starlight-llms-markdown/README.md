@@ -53,7 +53,7 @@ export default defineConfig({
 ## Notes
 
 - Pages with an empty body (such as a splash homepage with only a hero) still get a `.md` file but are left out of `llms.txt` and `llms-full.txt`.
-- For `.mdx` pages the output is the raw source, so component tags appear as written.
+- `.mdx` pages are converted to plain markdown: imports, exports and `{expressions}` are removed, Starlight's built-in components (`Aside`, `Tabs`, `Steps`, `Card`, `LinkCard`, `FileTree`, `Code`, `Badge`, ...) become their markdown equivalent, and other components are replaced by their content.
 - `base` and `trailingSlash` from your Astro config are respected.
 - Multilingual sites currently get every locale listed together in one `llms.txt`.
 
